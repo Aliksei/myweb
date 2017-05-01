@@ -1,4 +1,4 @@
-package com.tkachuk.command;
+package com.webApp.command;
 
 public enum CommandTypes {
 

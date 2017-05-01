@@ -1,4 +1,4 @@
-package com.tkachuk.command;
+package com.webApp.command;
 
 import javax.servlet.http.HttpServletRequest;
 

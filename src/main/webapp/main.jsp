@@ -3,7 +3,7 @@
 <body>
 <h3>Welcome</h3>
 <hr/>
-${user} , hello!
+${user_name} , hello . Your session id  = [ ${session_id} ]
 <hr/>
 <a href="controller?command=logout">Logout</a>
 </body></html>

@@ -1,9 +1,9 @@
-package com.tkachuk.controller;
+package com.webApp.controller;
 
-import com.tkachuk.ConfigUtils;
-import com.tkachuk.command.CommandManager;
-import com.tkachuk.command.ICommand;
-import com.tkachuk.user.AccountService;
+import com.webApp.command.CommandManager;
+import com.webApp.command.ICommand;
+import com.webApp.dao.AccountDao;
+import com.webApp.utils.ConfigUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,10 @@ import java.io.IOException;
 @WebServlet("/controller")
 public class Servlet extends HttpServlet {
 
-    private final AccountService accountService = new AccountService();
+    @Override
+    public void init() throws ServletException {
+        getServletContext().setAttribute("dao",new AccountDao());
+    }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         handleRequest(req,resp);
@@ -32,7 +35,7 @@ public class Servlet extends HttpServlet {
         CommandManager commandManager = new CommandManager();
 
         ICommand command = commandManager.defineCommand(req);
-        view = command.execute(req,accountService);
+        view = command.execute(req);
         if (view != null){
             getServletContext().getRequestDispatcher(view).forward(req,resp);
         }else {

@@ -1,4 +1,4 @@
-package com.tkachuk.user;
+package com.webApp.entities;
 
 public class User {
 

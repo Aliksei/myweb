@@ -1,27 +1,28 @@
-package com.tkachuk.command;
+package com.webApp.command;
 
-import com.tkachuk.ConfigUtils;
-import com.tkachuk.user.AccountService;
-import com.tkachuk.user.User;
+import com.webApp.dao.AccountDao;
+import com.webApp.entities.User;
+import com.webApp.utils.ConfigUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class LogginCommand implements ICommand {
 
-    public String execute(HttpServletRequest request, AccountService accountService) {
+    public String execute(HttpServletRequest request) {
         String view ;
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
 
-        User user = accountService.getUserByLogin(login);
+        AccountDao accountDao = (AccountDao) request.getServletContext().getAttribute("dao");
 
+        User user = accountDao.getUserByLogin(login);
         if (user != null && user.getPassword().equals(pass) ) {
 
-
             String sessionId = request.getSession().getId();
-            accountService.addSession(sessionId,user);
+            request.getSession().setAttribute("session_id",sessionId);
+            request.getSession().setAttribute("dao",login);
 
-            request.setAttribute("user", login);
+            request.setAttribute("user_name", login);
             view = ConfigUtils.getProperty("path.page.main");
         } else {
             request.setAttribute("errorLoginPassMessage",

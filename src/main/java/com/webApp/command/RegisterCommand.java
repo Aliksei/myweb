@@ -1,21 +1,22 @@
-package com.tkachuk.command;
+package com.webApp.command;
 
-import com.tkachuk.ConfigUtils;
-import com.tkachuk.user.AccountService;
-import com.tkachuk.user.User;
+import com.webApp.utils.ConfigUtils;
+import com.webApp.dao.AccountDao;
+import com.webApp.entities.User;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class RegisterCommand implements ICommand{
 
-    public String execute(HttpServletRequest request, AccountService accountService) {
+    public String execute(HttpServletRequest request) {
 
         String view ;
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
+        AccountDao accountDao = (AccountDao) request.getServletContext().getAttribute("dao");
 
         if ( login != null && pass!=null && !login.isEmpty() && !pass.isEmpty()){
-            accountService.addNewUser(new User(login,pass));
+            accountDao.addNewUser(new User(login,pass));
             view = ConfigUtils.getProperty("path.page.login");
         }else {
             request.setAttribute("errorMessagePassMessage",

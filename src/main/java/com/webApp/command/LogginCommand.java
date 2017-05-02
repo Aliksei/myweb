@@ -20,9 +20,8 @@ public class LogginCommand implements ICommand {
 
             String sessionId = request.getSession().getId();
             request.getSession().setAttribute("session_id",sessionId);
-            request.getSession().setAttribute("dao",login);
+            request.getSession().setAttribute("user",login);
 
-            request.setAttribute("user_name", login);
             view = ConfigUtils.getProperty("path.page.main");
         } else {
             request.setAttribute("errorLoginPassMessage",

@@ -25,8 +25,8 @@ public class MainPageFilter implements Filter{
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        String user = (String) httpRequest.getSession().getAttribute("dao");
-        if( user==null ){
+        String user = (String) httpRequest.getSession().getAttribute("user");
+        if( user == null ){
 
             context.log("Unauthorized access request");
             context.log("Redirecting to Login page");

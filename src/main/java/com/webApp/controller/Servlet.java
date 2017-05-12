@@ -2,7 +2,7 @@ package com.webApp.controller;
 
 import com.webApp.command.CommandManager;
 import com.webApp.command.ICommand;
-import com.webApp.dao.AccountDao;
+import com.webApp.dao.UserDaoXmlImpl;
 import com.webApp.utils.ConfigUtils;
 
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ public class Servlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        getServletContext().setAttribute("dao",new AccountDao());
+        getServletContext().setAttribute("dao",new UserDaoXmlImpl());
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

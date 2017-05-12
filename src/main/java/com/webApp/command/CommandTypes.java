@@ -7,6 +7,11 @@ public enum CommandTypes {
             this.command = new LogginCommand();
         }
     },
+    BUY {
+        {
+            this.command = new BuyCommand();
+        }
+    },
     LOGOUT {
         {
             this.command = new LogoutCommand();

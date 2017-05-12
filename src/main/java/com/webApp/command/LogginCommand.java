@@ -1,6 +1,6 @@
 package com.webApp.command;
 
-import com.webApp.dao.AccountDao;
+import com.webApp.dao.UserDaoXmlImpl;
 import com.webApp.entities.User;
 import com.webApp.utils.ConfigUtils;
 
@@ -13,7 +13,7 @@ public class LogginCommand implements ICommand {
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
 
-        AccountDao accountDao = (AccountDao) request.getServletContext().getAttribute("dao");
+        UserDaoXmlImpl accountDao = (UserDaoXmlImpl) request.getServletContext().getAttribute("dao");
 
         User user = accountDao.getUserByLogin(login);
         if (user != null && user.getPassword().equals(pass) ) {

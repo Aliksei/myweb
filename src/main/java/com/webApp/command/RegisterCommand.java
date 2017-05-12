@@ -1,8 +1,8 @@
 package com.webApp.command;
 
-import com.webApp.utils.ConfigUtils;
-import com.webApp.dao.AccountDao;
+import com.webApp.dao.UserDaoXmlImpl;
 import com.webApp.entities.User;
+import com.webApp.utils.ConfigUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,10 +13,10 @@ public class RegisterCommand implements ICommand{
         String view ;
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
-        AccountDao accountDao = (AccountDao) request.getServletContext().getAttribute("dao");
+        UserDaoXmlImpl accountDao = (UserDaoXmlImpl) request.getServletContext().getAttribute("dao");
 
         if ( login != null && pass!=null && !login.isEmpty() && !pass.isEmpty()){
-            accountDao.addNewUser(new User(login,pass));
+            accountDao.createUser(new User(login,pass));
             view = ConfigUtils.getProperty("path.page.login");
         }else {
             request.setAttribute("errorMessagePassMessage",

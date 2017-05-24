@@ -2,6 +2,7 @@ package com.webApp.controller;
 
 import com.webApp.command.CommandManager;
 import com.webApp.command.ICommand;
+import com.webApp.dao.ProfileDaoXmlImpl;
 import com.webApp.dao.UserDaoXmlImpl;
 import com.webApp.utils.ConfigUtils;
 
@@ -17,7 +18,8 @@ public class Servlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        getServletContext().setAttribute("dao",new UserDaoXmlImpl());
+        getServletContext().setAttribute("userDao",new UserDaoXmlImpl());
+        getServletContext().setAttribute("profileDao",new ProfileDaoXmlImpl());
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

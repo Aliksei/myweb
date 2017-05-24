@@ -4,4 +4,8 @@
         <login>1</login>
         <password>1</password>
     </user>
+    <user>
+        <login>lesha</login>
+        <password>1</password>
+    </user>
 </users>

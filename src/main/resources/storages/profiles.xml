@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <userName>1</userName>
+    </profile>
+    <profile>
+        <userName>lesha</userName>
+        <ticket>
+            <filmName>Terminator</filmName>
+            <price>12</price>
+        </ticket>
+        <ticket>
+            <filmName>Lord of the Rings</filmName>
+            <price>10</price>
+        </ticket>
+        <ticket>
+            <filmName>Lord of the Rings</filmName>
+            <price>10</price>
+        </ticket>
+        <ticket>
+            <filmName>Terminator</filmName>
+            <price>12</price>
+        </ticket>
+        <ticket>
+            <filmName>Lord of the Rings</filmName>
+            <price>10</price>
+        </ticket>
+        <ticket>
+            <filmName>Terminator</filmName>
+            <price>12</price>
+        </ticket>
+    </profile>
+</profiles>

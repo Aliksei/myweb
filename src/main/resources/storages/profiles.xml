@@ -2,6 +2,10 @@
 <profiles>
     <profile>
         <userName>1</userName>
+        <ticket>
+            <filmName>Terminator</filmName>
+            <price>12</price>
+        </ticket>
     </profile>
     <profile>
         <userName>lesha</userName>
